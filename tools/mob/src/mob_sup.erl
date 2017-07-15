@@ -24,7 +24,7 @@ client_spec(Host, Port, Id) -> #{
   restart => permanent,
   shutdown => 5000,
   type => worker,
-  modules => {mob_request]
+  modules => [mob_request]
 }.
 
 client_specs() ->
@@ -41,4 +41,4 @@ sup_flags() -> #{
 }.
 
 init([]) ->
-  {ok, {sup_flags(), client_specs()}}.
+  {ok, {sup_flags(), [server_spec()]}}.
